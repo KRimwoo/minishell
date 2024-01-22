@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woorikim <woorikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 13:56:18 by woorikim          #+#    #+#             */
-/*   Updated: 2023/12/28 14:18:04 by woorikim         ###   ########.fr       */
+/*   Created: 2023/03/22 18:17:21 by woorikim          #+#    #+#             */
+/*   Updated: 2023/03/25 16:08:43 by woorikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <sys/wait.h>
-
-# define FAIL 1
-# define SUCCESS 0
-
-typedef struct	s_cmd
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	**cmd;
-	char	*path;
-}	t_cmd;
+	size_t	total_len;
+	size_t	i;
+	char	*str;
 
-typedef struct s_info
-{
-	char	**envp;
-	char	*infile;
-	char	*outfile;
-	int		pipe[2];
-	int		fd_in;
-	int		fd_out;
-	int		pid;
-	int		status;
-}	t_info;
-#endif
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(sizeof(char) * (total_len + 1));
+	if (!str)
+		return (0);
+	i = 0;
+	while (*s1)
+	{
+		*(str + i) = *s1++;
+		i++;
+	}
+	while (*s2)
+	{
+		*(str + i) = *s2++;
+		i++;
+	}
+	*(str + i) = '\0';
+	return (str);
+}
