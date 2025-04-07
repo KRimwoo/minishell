@@ -153,8 +153,6 @@ make
 ## 📋 Usage Examples
 
 ```bash
-bash
-복사
 # Basic command execution
 $ ls -la
 
