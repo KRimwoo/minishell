@@ -109,7 +109,6 @@ make
 
 ### 1. 파싱 프로세스(@woorikim)
 
-minishell의 파싱 과정은 다음 단계로 진행됩니다:
 
 1. **렉시컬 분석 (Lexical Analysis)** (`do_lexical.c`):
     - 입력 문자열을 토큰으로 분리
@@ -145,7 +144,7 @@ minishell의 파싱 과정은 다음 단계로 진행됩니다:
     - 여러 명령어 연결 처리
     - 파이프 생성 및 자식 프로세스 관리
 
-### 3. 신호 처리(@woorikim, @yeeunpar)
+### 3. Signal 처리(@woorikim, @yeeunpar)
 
 - Ctrl+C (SIGINT): 현재 실행 중인 명령 종료, 새 프롬프트 표시
 - Ctrl+D (EOF): 쉘 종료
